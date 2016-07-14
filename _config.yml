@@ -1,0 +1,8 @@
+excerpt_separator: ""
+pygments: true
+markdown: kramdown
+url: http://gabrielnaoto.github.io
+title: Gabriel Naoto
+tagline: A log of everyday life
+description: My awesome new site
+paginate: 5
