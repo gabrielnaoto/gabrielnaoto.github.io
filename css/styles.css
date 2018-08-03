@@ -466,3 +466,9 @@ b.max-bold {
     align-items: center;
     text-align: center;
 }
+
+@media (min-width: 992px) {
+    .formacao-complementar {
+        min-height: 100px;
+    }
+}

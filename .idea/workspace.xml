@@ -11,29 +11,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="287" column="16" selection-start-line="287" selection-start-column="16" selection-end-line="290" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="404.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/404.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/styles.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="466" column="22" selection-start-line="466" selection-start-column="22" selection-end-line="466" selection-end-column="22" />
+            <state relative-caret-position="89">
+              <caret line="376" column="45" selection-start-line="376" selection-start-column="45" selection-end-line="376" selection-end-column="45" />
+              <caret line="364" column="45" selection-start-line="364" selection-start-column="45" selection-end-line="364" selection-end-column="45" />
+              <caret line="352" column="45" selection-start-line="352" selection-start-column="45" selection-end-line="352" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -56,6 +40,7 @@
       <find>port</find>
       <find>Down</find>
       <find>Formação</find>
+      <find>Data</find>
       <find>#CE2F13</find>
     </findStrings>
     <replaceStrings>
@@ -73,9 +58,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/02-cv-boxed/css/styles.css" />
         <option value="$PROJECT_DIR$/pages/02-cv-boxed.html" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$PROJECT_DIR$/404.html" />
+        <option value="$PROJECT_DIR$/css/styles.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -247,24 +232,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="287" column="16" selection-start-line="287" selection-start-column="16" selection-end-line="290" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="466" column="22" selection-start-line="466" selection-start-column="22" selection-end-line="466" selection-end-column="22" />
+        <state relative-caret-position="382">
+          <caret line="469" column="24" selection-start-line="469" selection-start-column="24" selection-end-line="469" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/404.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
+        <state relative-caret-position="442">
           <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="376" column="45" selection-start-line="376" selection-start-column="45" selection-end-line="376" selection-end-column="45" />
+          <caret line="364" column="45" selection-start-line="364" selection-start-column="45" selection-end-line="364" selection-end-column="45" />
+          <caret line="352" column="45" selection-start-line="352" selection-start-column="45" selection-end-line="352" selection-end-column="45" />
         </state>
       </provider>
     </entry>
