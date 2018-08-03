@@ -14,8 +14,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="306" column="81" selection-start-line="306" selection-start-column="81" selection-end-line="306" selection-end-column="81" />
+            <state relative-caret-position="272">
+              <caret line="16" column="55" lean-forward="true" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -23,8 +23,8 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="217" column="60" selection-start-line="217" selection-start-column="60" selection-end-line="217" selection-end-column="60" />
+            <state relative-caret-position="2683">
+              <caret line="448" column="23" selection-start-line="448" selection-start-column="23" selection-end-line="448" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -44,10 +44,14 @@
       <find>Lobster Two</find>
       <find>background-im</find>
       <find>../</find>
+      <find>port</find>
+      <find>#CE2F13</find>
+      <find>Down</find>
     </findStrings>
     <replaceStrings>
       <replace>Lobster Two</replace>
       <replace>Share</replace>
+      <replace>#0085a4</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -95,6 +99,11 @@
               <item name="gabrielnaoto.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="gabrielnaoto.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gabrielnaoto.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gabrielnaoto.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="download" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -241,15 +250,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="217" column="60" selection-start-line="217" selection-start-column="60" selection-end-line="217" selection-end-column="60" />
+        <state relative-caret-position="2683">
+          <caret line="448" column="23" selection-start-line="448" selection-start-column="23" selection-end-line="448" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="306" column="81" selection-start-line="306" selection-start-column="81" selection-end-line="306" selection-end-column="81" />
+        <state relative-caret-position="272">
+          <caret line="16" column="55" lean-forward="true" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
         </state>
       </provider>
     </entry>
