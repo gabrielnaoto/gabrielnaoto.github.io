@@ -404,7 +404,7 @@ b.max-bold {
 }
 
 .portfolio-section .p-item {
-    width: 25%;
+    width: 100px !important;
     padding: 0 7.5px 0px;
     margin-top: 15px;
 }
@@ -472,3 +472,5 @@ b.max-bold {
         min-height: 100px;
     }
 }
+
+z
