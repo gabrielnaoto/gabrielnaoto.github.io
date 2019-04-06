@@ -215,7 +215,8 @@ b.max-bold {
     position: relative;
     background-size: cover;
     z-index: 1;
-    background-image: url(../images/background-gray-blur.jpg);
+    /*background-image: url(../images/background-gray-blur.jpg);*/
+    background-image: url(../images/bg-1-alt-cut.jpg);
 }
 
 .intro-section:before {
@@ -465,6 +466,12 @@ b.max-bold {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
+    background-size: cover;
+    z-index: 1;
+    color: white;
+    text-shadow: 2px 2px #000000;
+    background-image: url(../images/bg-2-cut.jpg);
 }
 
 @media (min-width: 992px) {
