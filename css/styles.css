@@ -482,8 +482,14 @@ b.max-bold {
 
 .p-item {
     width: 100px !important;
-    /*padding: 0 7.5px 0px;*/
+    height: 100px !important;
     margin-top: 15px;
     align-items: center;
+    justify-content: center;
     display: flex;
+}
+
+.p-image{
+  max-width: 75px !important;
+  max-height: 50px !important;
 }
