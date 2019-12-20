@@ -2,20 +2,20 @@
 (function ($) {
 
     "use strict";
-	
-	
+
+    $("#age-span").html(new Date().getFullYear() - 1996);
 
 	// LINE PROGRESS BAR
 	enableLineProgress();
-	
+
 	// RADIAL PROGRESS BAR
 	enableRadialProgress();
-	
+
 	// ACCORDIAN
 	panelAccordian();
 
 	$(window).on('load', function(){
-		
+
 		// ISOTOPE PORTFOLIO WITH FILTER
 		if(isExists('.portfolioContainer')){
 			var $container = $('.portfolioContainer');
@@ -27,11 +27,11 @@
 					queue: false
 				}
 			});
-		 
+
 			$('.portfolioFilter a').click(function(){
 				$('.portfolioFilter .current').removeClass('current');
 				$(this).addClass('current');
-		 
+
 				var selector = $(this).attr('data-filter');
 				$container.isotope({
 					filter: selector,
@@ -42,53 +42,53 @@
 					}
 				 });
 				 return false;
-			}); 
+			});
 		}
-	
+
 	});
-	
-	
+
+
 	$('a[href="#"]').on('click', function(event){
 		return;
 	});
-	
-	
+
+
 	if ( $.isFunction($.fn.fluidbox) ) {
 		$('a').fluidbox();
 	}
-	
+
 	var countCounterUp = 0;
-	
+
 	var a = 0 ;
-	
+
 	countCounterUp = enableCounterUp(countCounterUp);
-	
+
 	$(window).on('scroll', function(){
-		
+
 		countCounterUp = enableCounterUp(countCounterUp);
-	
+
 	});
-	
-	
+
+
 })(jQuery);
 
 function panelAccordian(){
-	
+
 	var panelTitle = $('.panel-title');
 	panelTitle.on('click', function(){
 		$('.panel-title').removeClass('active');
 		$(this).toggleClass('active');
-		
+
 	});
-	
+
 }
 
 function enableRadialProgress(){
-	
+
 	$(".radial-progress").each(function(){
 		var $this = $(this),
 			progPercent = $this.data('prog-percent');
-			
+
 		var bar = new ProgressBar.Circle(this, {
 			color: '#aaa',
 			strokeWidth: 3,
@@ -96,7 +96,7 @@ function enableRadialProgress(){
 			easing: 'easeInOut',
 			duration: 1400,
 			text: {
-				
+
 			},
 			from: { color: '#aaa', width: 1 },
 			to: { color: '#FEAE01', width: 3 },
@@ -114,20 +114,20 @@ function enableRadialProgress(){
 
 			}
 		});
-		
+
 		$(this).waypoint(function(){
-		   bar.animate(progPercent);  
+		   bar.animate(progPercent);
 		},{offset: "90%"})
-		
+
 	});
 }
 
 function enableLineProgress(){
-	
+
 	$(".line-progress").each(function(){
 		var $this = $(this),
 			progPercent = $this.data('prog-percent');
-			
+
 		var bar = new ProgressBar.Line(this, {
 			strokeWidth: 1,
 			easing: 'easeInOut',
@@ -138,7 +138,7 @@ function enableLineProgress(){
 			svgStyle: {width: '100%', height: '100%'},
 			text: {
 				style: {
-					
+
 				},
 			},
 			from: {color: '#FFEA82'},
@@ -147,21 +147,21 @@ function enableLineProgress(){
 				bar.setText(Math.round(bar.value() * 100) + ' %');
 			}
 		});
-		
+
 		$(this).waypoint(function(){
-		   bar.animate(progPercent);  
+		   bar.animate(progPercent);
 		},{offset: "90%"})
-		
+
 	});
 }
 
 function enableCounterUp(a){
-	
+
 	var counterElement;
-	
+
 	if(isExists('#counter')){ counterElement = $('#counter'); }
 	else{ return; }
-		
+
 	var oTop = $('#counter').offset().top - window.innerHeight;
 	if (a == 0 && $(window).scrollTop() > oTop) {
 		$('.counter-value').each(function() {
@@ -192,7 +192,7 @@ function enableCounterUp(a){
 }
 
 function isExists(elem){
-	if ($(elem).length > 0) { 
+	if ($(elem).length > 0) {
 		return true;
 	}
 	return false;
