@@ -263,6 +263,18 @@ b.max-bold {
     color: #fff;
 }
 
+.intro h2 b {
+  text-shadow: 1px 1px 5px black;
+}
+
+.intro .font-yellow {
+  text-shadow: 1px 1px 5px black;
+}
+
+.intro .information li {
+  text-shadow: 1px 1px 5px black;
+}
+
 .intro .profile-img {
     max-width: 400px;
     border-radius: 5px;
