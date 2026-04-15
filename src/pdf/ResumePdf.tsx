@@ -1,5 +1,6 @@
 import {
   Document,
+  Font,
   Page,
   Text,
   View,
@@ -9,115 +10,141 @@ import {
 import { personal } from "../data/personal";
 import { education } from "../data/education";
 
+// Computer Modern Serif — the actual LaTeX font
+// OTF files served from public/fonts/
+Font.register({
+  family: "Computer Modern Serif",
+  fonts: [
+    { src: "/fonts/cmunrm.otf", fontWeight: 400, fontStyle: "normal" },
+    { src: "/fonts/cmunbx.otf", fontWeight: 700, fontStyle: "normal" },
+    { src: "/fonts/cmunti.otf", fontWeight: 400, fontStyle: "italic" },
+  ],
+});
+
+Font.registerHyphenationCallback((word) => [word]);
+
+const F = "Computer Modern Serif";
+
+// All values below are matched to the reference PDF from curriculoglobal:
+// h1: 14pt bold center, margin 0 0 2pt 0
+// contact: 9pt #444 center, margin 0 0 6pt 0
+// h2: 11pt bold uppercase, letter-spacing 1pt, margin 10pt 0 4pt 0, border-bottom 0.5pt #333
+// h3: 10.5pt bold, margin 6pt 0 0 0
+// date: 9pt #555 italic, margin 0 0 2pt 0
+// body: 10pt #1a1a1a, line-height 1.3
+// ul: padding-left 14pt, disc markers
+// page: 0.4in margins all sides
+
+const PT = 1; // 1pt = 1 in react-pdf units (which are pt by default)
+
 const styles = StyleSheet.create({
   page: {
-    paddingTop: 36,
-    paddingBottom: 36,
-    paddingHorizontal: 48,
-    fontSize: 10,
-    fontFamily: "Helvetica",
-    lineHeight: 1.35,
-    color: "#000",
+    paddingTop: 0.4 * 72,    // 0.4in
+    paddingBottom: 0.4 * 72,
+    paddingHorizontal: 0.4 * 72,
+    fontSize: 10 * PT,
+    fontFamily: F,
+    lineHeight: 1.3,
+    color: "#1a1a1a",
   },
+
+  // h1 — name
   name: {
-    fontSize: 18,
+    fontSize: 14 * PT,
+    fontWeight: 700,
     textAlign: "center",
-    fontFamily: "Helvetica-Bold",
-    marginBottom: 3,
+    color: "#000000",
+    marginBottom: 2 * PT,
   },
+
+  // Contact line (p after h1)
   contactRow: {
     textAlign: "center",
-    fontSize: 9,
-    color: "#444",
-    marginBottom: 10,
+    fontSize: 9 * PT,
+    color: "#444444",
+    marginBottom: 6 * PT,
   },
   contactLink: {
-    color: "#2b6e99",
+    color: "#0645ad",
     textDecoration: "none",
   },
+
+  // h2 — section headings
   sectionHeading: {
-    fontSize: 10.5,
-    fontFamily: "Helvetica-Bold",
+    fontSize: 11 * PT,
+    fontWeight: 700,
+    color: "#000000",
     textTransform: "uppercase",
-    letterSpacing: 3.5,
-    marginTop: 10,
-    marginBottom: 1,
-    borderBottomWidth: 0.8,
-    borderBottomColor: "#000",
-    paddingBottom: 2,
+    letterSpacing: 1 * PT,
+    marginTop: 10 * PT,
+    marginBottom: 4 * PT,
+    paddingBottom: 2 * PT,
+    borderBottomWidth: 0.5 * PT,
+    borderBottomColor: "#333333",
   },
+
+  // Body paragraph (under Summary)
   paragraph: {
-    fontSize: 10,
-    marginTop: 5,
-    lineHeight: 1.4,
+    fontSize: 10 * PT,
+    marginBottom: 3 * PT,
+    lineHeight: 1.3,
   },
+
+  // Bullet list items
   bulletItem: {
     flexDirection: "row",
-    marginLeft: 8,
-    marginTop: 3,
+    paddingLeft: 14 * PT,
+    marginBottom: 1 * PT,
   },
   bullet: {
-    width: 10,
-    fontSize: 10,
+    width: 10 * PT,
+    fontSize: 10 * PT,
+    color: "#555555",
   },
   bulletText: {
     flex: 1,
-    fontSize: 10,
-    lineHeight: 1.4,
+    fontSize: 10 * PT,
+    lineHeight: 1.3,
   },
-  entryHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 7,
+  boldInline: {
+    fontWeight: 700,
   },
-  entryTitleRow: {
-    flexDirection: "row",
+
+  // h3 — job title line
+  entryTitle: {
+    fontSize: 10.5 * PT,
+    fontWeight: 700,
+    color: "#000000",
+    marginTop: 6 * PT,
   },
-  entryRole: {
-    fontFamily: "Helvetica-Bold",
-    fontSize: 10,
-  },
-  entryCompany: {
-    fontFamily: "Helvetica-Bold",
-    fontSize: 10,
-  },
-  entrySeparator: {
-    fontSize: 10,
-    fontFamily: "Helvetica",
-  },
+
+  // Date line (italic, after h3)
   entryDate: {
-    fontFamily: "Helvetica-Oblique",
-    fontSize: 10,
-    marginTop: 1,
+    fontSize: 9 * PT,
+    fontStyle: "italic",
+    color: "#555555",
+    marginBottom: 2 * PT,
   },
-  educationHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 7,
+
+  // Education — same as h3
+  educationTitle: {
+    fontSize: 10.5 * PT,
+    fontWeight: 700,
+    color: "#000000",
+    marginTop: 6 * PT,
   },
-  educationTitleRow: {
-    flexDirection: "row",
-    flex: 1,
-  },
-  educationDegree: {
-    fontFamily: "Helvetica-Bold",
-    fontSize: 10,
-  },
-  educationInstitution: {
-    fontFamily: "Helvetica-Bold",
-    fontSize: 10,
-  },
+
+  // Publication bold title
   publicationTitle: {
-    fontFamily: "Helvetica-Bold",
-    fontSize: 10,
+    fontWeight: 700,
+    fontSize: 10 * PT,
   },
   publicationDetail: {
-    fontSize: 10,
+    fontSize: 10 * PT,
   },
 });
 
-// Resume-specific content that matches the reference PDF
-// This is separate from website data to allow resume-specific wording
+// Resume-specific content matching the reference PDF exactly
 
 const resumeData = {
   en: {
@@ -267,10 +294,10 @@ export function ResumePdf({ lang }: ResumePdfProps) {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-        {/* Name */}
+        {/* h1 — Name */}
         <Text style={styles.name}>{personal.fullName}</Text>
 
-        {/* Contact row */}
+        {/* Contact line */}
         <Text style={styles.contactRow}>
           {"Florianópolis, Brazil | "}
           <Link src={`mailto:${personal.email}`} style={styles.contactLink}>
@@ -279,35 +306,29 @@ export function ResumePdf({ lang }: ResumePdfProps) {
           {" | +55 47 9 9113 2459 | gabrielnaoto.github.io"}
         </Text>
 
-        {/* Summary */}
+        {/* SUMMARY */}
         <Text style={styles.sectionHeading}>{sectionLabels.summary}</Text>
         <Text style={styles.paragraph}>{data.summary}</Text>
 
-        {/* Skills */}
+        {/* SKILLS */}
         <Text style={styles.sectionHeading}>{sectionLabels.skills}</Text>
         {data.skills.map((skill) => (
           <View key={skill.category} style={styles.bulletItem}>
             <Text style={styles.bullet}>&#8226;</Text>
             <Text style={styles.bulletText}>
-              <Text style={{ fontFamily: "Helvetica-Bold" }}>
-                {skill.category}:
-              </Text>
+              <Text style={styles.boldInline}>{skill.category}:</Text>
               {" " + skill.items}
             </Text>
           </View>
         ))}
 
-        {/* Experience */}
+        {/* EXPERIENCE */}
         <Text style={styles.sectionHeading}>{sectionLabels.experience}</Text>
         {data.experience.map((entry) => (
           <View key={`${entry.company}-${entry.date}`}>
-            <View style={styles.entryHeader}>
-              <View style={styles.entryTitleRow}>
-                <Text style={styles.entryRole}>{entry.role}</Text>
-                <Text style={styles.entrySeparator}> — </Text>
-                <Text style={styles.entryCompany}>{entry.company}</Text>
-              </View>
-            </View>
+            <Text style={styles.entryTitle}>
+              {entry.role} {"\u2014"} {entry.company}
+            </Text>
             <Text style={styles.entryDate}>{entry.date}</Text>
             {entry.bullets.map((bullet, i) => (
               <View key={i} style={styles.bulletItem}>
@@ -318,22 +339,16 @@ export function ResumePdf({ lang }: ResumePdfProps) {
           </View>
         ))}
 
-        {/* Education */}
+        {/* EDUCATION */}
         <Text style={styles.sectionHeading}>{sectionLabels.education}</Text>
-        <View style={styles.educationHeader}>
-          <View style={styles.educationTitleRow}>
-            <Text style={styles.educationDegree}>{edu.degree[lang]}</Text>
-            <Text style={styles.entrySeparator}> — </Text>
-            <Text style={styles.educationInstitution}>
-              {data.educationInstitution}
-            </Text>
-          </View>
-        </View>
+        <Text style={styles.educationTitle}>
+          {edu.degree[lang]} {"\u2014"} {data.educationInstitution}
+        </Text>
         <Text style={styles.entryDate}>
           {edu.startYear} - {edu.endYear}
         </Text>
 
-        {/* Publications & Speaking */}
+        {/* PUBLICATIONS & SPEAKING */}
         <Text style={styles.sectionHeading}>
           {sectionLabels.publications}
         </Text>
@@ -343,13 +358,13 @@ export function ResumePdf({ lang }: ResumePdfProps) {
             <Text style={styles.bulletText}>
               <Text style={styles.publicationTitle}>{pub.title}</Text>
               <Text style={styles.publicationDetail}>
-                {" — " + pub.detail}
+                {" \u2014 " + pub.detail}
               </Text>
             </Text>
           </View>
         ))}
 
-        {/* Languages */}
+        {/* LANGUAGES */}
         <Text style={styles.sectionHeading}>{sectionLabels.languages}</Text>
         {data.languages.map((l) => (
           <View key={l.name} style={styles.bulletItem}>
