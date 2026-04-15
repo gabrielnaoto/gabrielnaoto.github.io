@@ -7,16 +7,16 @@ export const personal = {
     pt: "Florianopolis/SC, Brasil",
   },
   title: {
-    en: "Software Engineer",
-    pt: "Engenheiro de Software",
+    en: "Engineering Manager",
+    pt: "Gerente de Engenharia",
   },
   tagline: {
-    en: "Building things for the web",
-    pt: "Construindo coisas para a web",
+    en: "Leading teams that build great products",
+    pt: "Liderando times que constroem grandes produtos",
   },
   bio: {
-    en: "Software Engineer graduated from UDESC. Started in tech in 2013 during high school with HTML, CSS, and JavaScript. Passionate about web systems and building great user experiences.",
-    pt: "Engenheiro de Software formado pela UDESC. Comecou na area de tecnologia em 2013 durante o ensino medio com HTML, CSS e JavaScript. Apaixonado por sistemas web e por construir otimas experiencias para o usuario.",
+    en: "Engineering Manager with 10+ years of experience in software development. Currently leading teams at Constructor.io, building e-commerce search and discovery products at scale. Passionate about web systems and building great user experiences.",
+    pt: "Gerente de Engenharia com mais de 10 anos de experiência em desenvolvimento de software. Atualmente liderando equipes na Constructor.io, construindo produtos de busca e descoberta para e-commerce em escala. Apaixonado por sistemas web e por construir ótimas experiências para o usuário.",
   },
   social: {
     github: "https://github.com/gabrielnaoto",

@@ -7,7 +7,7 @@ export interface EducationEntry {
 
 export const education: EducationEntry[] = [
   {
-    institution: "UDESC",
+    institution: "Universidade do Estado de Santa Catarina",
     degree: {
       en: "Bachelor's in Software Engineering",
       pt: "Bacharelado em Engenharia de Software",

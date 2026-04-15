@@ -10,7 +10,7 @@ export const skills: SkillCategory[] = [
   },
   {
     category: { en: "Backend", pt: "Backend" },
-    icons: "ruby,rails,python,django,elixir,java",
+    icons: "ruby,rails,nodejs,py,django,elixir",
   },
   {
     category: { en: "Mobile", pt: "Mobile" },
@@ -21,7 +21,7 @@ export const skills: SkillCategory[] = [
     icons: "postgres,mysql",
   },
   {
-    category: { en: "Tools", pt: "Ferramentas" },
-    icons: "git,github,graphql,docker",
+    category: { en: "Infrastructure & Tools", pt: "Infraestrutura e Ferramentas" },
+    icons: "aws,jenkins,docker,git,github,graphql",
   },
 ];

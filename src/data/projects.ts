@@ -8,5 +8,13 @@ export interface ProjectEntry {
 }
 
 export const projects: ProjectEntry[] = [
-  // User will fill in project details later
+  {
+    name: "Currículo Global",
+    description: {
+      en: "AI-powered resume optimization platform for software engineers targeting international remote positions. Features ATS diagnostic scoring, seniority-calibrated evaluation, and professional resume rewriting in English.",
+      pt: "Plataforma de otimização de currículos com IA para engenheiros de software que buscam posições remotas internacionais. Oferece diagnóstico ATS, avaliação calibrada por senioridade e reescrita profissional de currículos em inglês.",
+    },
+    skillIcons: "react,nextjs,vercel",
+    liveUrl: "https://curriculoglobal.com.br",
+  },
 ];
