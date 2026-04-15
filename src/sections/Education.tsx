@@ -16,7 +16,7 @@ export function Education() {
           >
             <div>
               <h3 className="font-mono font-bold">{entry.institution}</h3>
-              <p className="text-gray-700 dark:text-gray-300 text-sm">
+              <p className="text-gray-300 text-sm">
                 {entry.degree[lang]}
               </p>
             </div>

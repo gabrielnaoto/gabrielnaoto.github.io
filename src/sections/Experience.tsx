@@ -2,18 +2,16 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Section } from "../components/Section";
 import { experience } from "../data/experience";
-import { useTheme } from "../hooks/useTheme";
 
 export function Experience() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as "en" | "pt";
-  const { theme } = useTheme();
 
   return (
     <Section id="experience" heading={t("experience.heading")}>
       <div className="relative">
         {/* Timeline line */}
-        <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700" />
+        <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-700" />
 
         {experience.map((entry, i) => {
           const isLeft = i % 2 === 0;
@@ -58,14 +56,14 @@ export function Experience() {
               <p className="text-accent font-mono text-sm">
                 {entry.role[lang]}
               </p>
-              <p className="text-gray-500 dark:text-gray-500 text-sm font-mono mb-2">
+              <p className="text-gray-500 text-sm font-mono mb-2">
                 {entry.startDate} — {endDate}
               </p>
-              <p className="text-gray-700 dark:text-gray-300 text-sm mb-3">
+              <p className="text-gray-300 text-sm mb-3">
                 {entry.description[lang]}
               </p>
               <img
-                src={`https://skillicons.dev/icons?i=${entry.skillIcons}&theme=${theme}`}
+                src={`https://skillicons.dev/icons?i=${entry.skillIcons}&theme=dark`}
                 alt={`Tech: ${entry.skillIcons}`}
                 className={`h-8 ${isLeft ? "md:ml-auto" : ""}`}
               />

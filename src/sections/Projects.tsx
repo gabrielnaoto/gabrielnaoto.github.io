@@ -2,12 +2,10 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Section } from "../components/Section";
 import { projects } from "../data/projects";
-import { useTheme } from "../hooks/useTheme";
 
 export function Projects() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as "en" | "pt";
-  const { theme } = useTheme();
 
   if (projects.length === 0) return null;
 
@@ -21,7 +19,7 @@ export function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="rounded-xl border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all"
+            className="rounded-xl border border-gray-800 p-6 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all"
           >
             {project.image && (
               <img
@@ -31,11 +29,11 @@ export function Projects() {
               />
             )}
             <h3 className="font-mono font-bold text-lg mb-2">{project.name}</h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">
+            <p className="text-gray-300 text-sm mb-4">
               {project.description[lang]}
             </p>
             <img
-              src={`https://skillicons.dev/icons?i=${project.skillIcons}&theme=${theme}`}
+              src={`https://skillicons.dev/icons?i=${project.skillIcons}&theme=dark`}
               alt={`Tech: ${project.skillIcons}`}
               className="h-8 mb-4"
             />

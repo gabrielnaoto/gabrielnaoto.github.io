@@ -16,7 +16,7 @@ export function About() {
           className="w-40 h-40 rounded-full object-cover border-2 border-accent"
         />
         <div className="flex-1">
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+          <p className="text-gray-300 leading-relaxed mb-6">
             {personal.bio[lang]}
           </p>
           <DownloadButton />

@@ -13,7 +13,7 @@ export function LanguageToggle() {
   return (
     <button
       onClick={toggle}
-      className="px-2 py-1 rounded-md text-sm font-mono font-bold hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+      className="px-2 py-1 rounded-md text-sm font-mono font-bold hover:bg-gray-800 transition-colors"
       aria-label={`Switch language to ${currentLang === "en" ? "Portuguese" : "English"}`}
     >
       {currentLang === "en" ? "PT" : "EN"}

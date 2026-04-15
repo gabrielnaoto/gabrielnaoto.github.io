@@ -33,7 +33,7 @@ export function Hero() {
           {personal.title[lang]}
           <span className="animate-pulse">_</span>
         </p>
-        <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-md mx-auto">
+        <p className="mt-4 text-gray-400 max-w-md mx-auto">
           {personal.tagline[lang]}
         </p>
 
@@ -43,7 +43,7 @@ export function Hero() {
             href={personal.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 dark:text-gray-400 hover:text-accent transition-colors"
+            className="text-gray-400 hover:text-accent transition-colors"
             aria-label="GitHub"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -54,7 +54,7 @@ export function Hero() {
             href={personal.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 dark:text-gray-400 hover:text-accent transition-colors"
+            className="text-gray-400 hover:text-accent transition-colors"
             aria-label="LinkedIn"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">

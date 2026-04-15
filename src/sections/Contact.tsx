@@ -5,7 +5,7 @@ export function Contact() {
   const { t } = useTranslation();
 
   return (
-    <footer id="contact" className="py-20 px-6 border-t border-gray-200 dark:border-gray-800">
+    <footer id="contact" className="py-20 px-6 border-t border-gray-800">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold font-mono mb-6 text-accent">
           {t("contact.heading")}
@@ -21,7 +21,7 @@ export function Contact() {
             href={personal.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 dark:text-gray-400 hover:text-accent transition-colors font-mono text-sm"
+            className="text-gray-400 hover:text-accent transition-colors font-mono text-sm"
           >
             GitHub
           </a>
@@ -29,7 +29,7 @@ export function Contact() {
             href={personal.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 dark:text-gray-400 hover:text-accent transition-colors font-mono text-sm"
+            className="text-gray-400 hover:text-accent transition-colors font-mono text-sm"
           >
             LinkedIn
           </a>
