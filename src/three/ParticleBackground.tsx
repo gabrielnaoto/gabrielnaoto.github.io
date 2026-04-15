@@ -231,7 +231,7 @@ function Particles() {
       const mDistSq = mdx * mdx + mdy * mdy + mdz * mdz + 0.2;
       const mDist = Math.sqrt(mDistSq);
       if (mDist < 10) {
-        const mForce = (2.0 * masses[i]) / mDistSq;
+        const mForce = (0.4 * masses[i]) / mDistSq;
         vx += (mdx / mDist) * mForce * dt;
         vy += (mdy / mDist) * mForce * dt;
         vz += (mdz / mDist) * mForce * dt;

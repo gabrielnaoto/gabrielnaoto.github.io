@@ -3,8 +3,8 @@ export const personal = {
   fullName: "Gabriel Naoto Ymai Pereira",
   email: "naoto.ymai@gmail.com",
   location: {
-    en: "Florianopolis/SC, Brazil",
-    pt: "Florianopolis/SC, Brasil",
+    en: "Florianópolis/SC, Brazil",
+    pt: "Florianópolis/SC, Brasil",
   },
   title: {
     en: "Engineering Manager",

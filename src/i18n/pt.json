@@ -1,15 +1,15 @@
 {
   "nav": {
     "about": "Sobre",
-    "experience": "Experiencia",
+    "experience": "Experiência",
     "projects": "Projetos",
     "skills": "Habilidades",
-    "education": "Formacao",
+    "education": "Formação",
     "articles": "Artigos",
     "contact": "Contato"
   },
   "hero": {
-    "title": "Engenheiro de Software",
+    "title": "Gerente de Engenharia",
     "scrollDown": "Role para baixo"
   },
   "about": {
@@ -17,19 +17,19 @@
     "downloadCv": "Baixar CV"
   },
   "experience": {
-    "heading": "Experiencia Profissional",
+    "heading": "Experiência Profissional",
     "present": "Atual"
   },
   "projects": {
     "heading": "Projetos",
     "viewLive": "Demo",
-    "viewCode": "Codigo"
+    "viewCode": "Código"
   },
   "skills": {
     "heading": "Conhecimentos e Habilidades"
   },
   "education": {
-    "heading": "Formacao Academica"
+    "heading": "Formação Acadêmica"
   },
   "articles": {
     "heading": "Artigos Publicados"
