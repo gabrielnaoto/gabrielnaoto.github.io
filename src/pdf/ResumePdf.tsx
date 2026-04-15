@@ -4,94 +4,265 @@ import {
   Text,
   View,
   StyleSheet,
+  Link,
 } from "@react-pdf/renderer";
 import { personal } from "../data/personal";
-import { experience } from "../data/experience";
 import { education } from "../data/education";
-import { skills } from "../data/skills";
 
 const styles = StyleSheet.create({
   page: {
-    padding: 36,
+    paddingTop: 36,
+    paddingBottom: 36,
+    paddingHorizontal: 48,
     fontSize: 10,
     fontFamily: "Helvetica",
-    lineHeight: 1.3,
+    lineHeight: 1.35,
+    color: "#000",
   },
   name: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
     fontFamily: "Helvetica-Bold",
-    textTransform: "uppercase",
-    letterSpacing: 2,
-    marginBottom: 4,
+    marginBottom: 3,
   },
   contactRow: {
     textAlign: "center",
     fontSize: 9,
-    color: "#333",
-    marginBottom: 12,
+    color: "#444",
+    marginBottom: 10,
+  },
+  contactLink: {
+    color: "#2b6e99",
+    textDecoration: "none",
   },
   sectionHeading: {
-    fontSize: 11,
+    fontSize: 10.5,
     fontFamily: "Helvetica-Bold",
     textTransform: "uppercase",
-    letterSpacing: 1,
+    letterSpacing: 3.5,
     marginTop: 10,
-    marginBottom: 2,
-    borderBottomWidth: 1,
+    marginBottom: 1,
+    borderBottomWidth: 0.8,
     borderBottomColor: "#000",
     paddingBottom: 2,
   },
-  entryRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 6,
-  },
-  entryCompany: {
-    fontFamily: "Helvetica-Bold",
+  paragraph: {
     fontSize: 10,
-  },
-  entryRole: {
-    fontFamily: "Helvetica-Oblique",
-    fontSize: 10,
-  },
-  entryDate: {
-    fontSize: 10,
-    textAlign: "right",
+    marginTop: 5,
+    lineHeight: 1.4,
   },
   bulletItem: {
     flexDirection: "row",
-    marginLeft: 12,
-    marginTop: 2,
+    marginLeft: 8,
+    marginTop: 3,
   },
   bullet: {
-    width: 8,
+    width: 10,
     fontSize: 10,
   },
   bulletText: {
     flex: 1,
     fontSize: 10,
+    lineHeight: 1.4,
   },
-  skillsRow: {
+  entryHeader: {
     flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 4,
+    justifyContent: "space-between",
+    marginTop: 7,
   },
-  skillCategory: {
+  entryTitleRow: {
+    flexDirection: "row",
+  },
+  entryRole: {
     fontFamily: "Helvetica-Bold",
     fontSize: 10,
   },
-  skillItems: {
+  entryCompany: {
+    fontFamily: "Helvetica-Bold",
+    fontSize: 10,
+  },
+  entrySeparator: {
+    fontSize: 10,
+    fontFamily: "Helvetica",
+  },
+  entryDate: {
+    fontFamily: "Helvetica-Oblique",
+    fontSize: 10,
+    marginTop: 1,
+  },
+  educationHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 7,
+  },
+  educationTitleRow: {
+    flexDirection: "row",
+    flex: 1,
+  },
+  educationDegree: {
+    fontFamily: "Helvetica-Bold",
+    fontSize: 10,
+  },
+  educationInstitution: {
+    fontFamily: "Helvetica-Bold",
+    fontSize: 10,
+  },
+  publicationTitle: {
+    fontFamily: "Helvetica-Bold",
+    fontSize: 10,
+  },
+  publicationDetail: {
     fontSize: 10,
   },
 });
+
+// Resume-specific content that matches the reference PDF
+// This is separate from website data to allow resume-specific wording
+
+const resumeData = {
+  en: {
+    summary:
+      "Full-stack Software Engineer with 7+ years of experience building production web and mobile applications across Ruby on Rails, React, and Elixir. Currently shipping features at Constructor.io, a global e-commerce search and discovery platform, working across the full stack with a strong focus on quality and delivery.",
+    skills: [
+      {
+        category: "Languages",
+        items: "Ruby, JavaScript, TypeScript, Elixir, Python, Java, SQL",
+      },
+      {
+        category: "Frameworks & Libraries",
+        items: "Ruby on Rails, React, React Native, Django, GraphQL",
+      },
+      { category: "Databases", items: "SQL (relational)" },
+      { category: "Tools & Practices", items: "Git, Agile" },
+    ],
+    experience: [
+      {
+        role: "Software Engineer",
+        company: "Constructor.io",
+        date: "Jun 2021 - Present",
+        bullets: [
+          "Build and maintain full-stack features across Ruby on Rails and React for a large-scale e-commerce search and discovery platform used by major global retailers.",
+          "Contribute to GraphQL API design and implementation, enabling flexible data querying across client-facing product surfaces.",
+          "Collaborate with distributed, cross-functional engineering teams to ship product improvements in a remote-first environment.",
+        ],
+      },
+      {
+        role: "Full-stack Developer",
+        company: "Jungsoft GmbH",
+        date: "2018 - May 2021",
+        bullets: [
+          "Developed full-stack features using Elixir and React across multiple client projects at a software consultancy, adapting quickly to varying domain requirements.",
+          "Built React Native mobile interfaces, extending product reach to iOS and Android users.",
+        ],
+      },
+      {
+        role: "Full-stack Developer",
+        company: "Singular Sistemas",
+        date: "2017 - 2018",
+        bullets: [
+          "Delivered full-stack features using Python and Django for internal business systems.",
+        ],
+      },
+    ],
+    educationInstitution: "University of the State of Santa Catarina",
+    publications: [
+      {
+        title:
+          "Leading students to programming resolution exercises by verifying their goals during program execution",
+        detail:
+          "Brazilian Symposium on Computers in Education, 2019. Authors: Adilson Vahldick, Gabriel Naoto Ymai Pereira.",
+      },
+    ],
+    languages: [
+      { name: "Portuguese", level: "Native" },
+      { name: "English", level: "Professional" },
+    ],
+  },
+  pt: {
+    summary:
+      "Engenheiro de Software Full-stack com 7+ anos de experiencia construindo aplicacoes web e mobile em producao com Ruby on Rails, React e Elixir. Atualmente desenvolvendo funcionalidades na Constructor.io, uma plataforma global de busca e descoberta para e-commerce, trabalhando em toda a stack com forte foco em qualidade e entrega.",
+    skills: [
+      {
+        category: "Linguagens",
+        items: "Ruby, JavaScript, TypeScript, Elixir, Python, Java, SQL",
+      },
+      {
+        category: "Frameworks & Bibliotecas",
+        items: "Ruby on Rails, React, React Native, Django, GraphQL",
+      },
+      { category: "Bancos de Dados", items: "SQL (relacional)" },
+      { category: "Ferramentas & Praticas", items: "Git, Agile" },
+    ],
+    experience: [
+      {
+        role: "Engenheiro de Software",
+        company: "Constructor.io",
+        date: "Jun 2021 - Atual",
+        bullets: [
+          "Construir e manter funcionalidades full-stack em Ruby on Rails e React para uma plataforma de busca e descoberta e-commerce em larga escala utilizada por grandes varejistas globais.",
+          "Contribuir para o design e implementacao de APIs GraphQL, permitindo consultas flexiveis de dados em superficies de produto voltadas ao cliente.",
+          "Colaborar com equipes de engenharia distribuidas e multifuncionais para entregar melhorias de produto em um ambiente remote-first.",
+        ],
+      },
+      {
+        role: "Desenvolvedor Full-stack",
+        company: "Jungsoft GmbH",
+        date: "2018 - Mai 2021",
+        bullets: [
+          "Desenvolveu funcionalidades full-stack usando Elixir e React em multiplos projetos de clientes em uma consultoria de software, adaptando-se rapidamente a diferentes requisitos de dominio.",
+          "Construiu interfaces mobile com React Native, estendendo o alcance do produto para usuarios iOS e Android.",
+        ],
+      },
+      {
+        role: "Desenvolvedor Full-stack",
+        company: "Singular Sistemas",
+        date: "2017 - 2018",
+        bullets: [
+          "Entregou funcionalidades full-stack usando Python e Django para sistemas internos de negocios.",
+        ],
+      },
+    ],
+    educationInstitution: "Universidade do Estado de Santa Catarina",
+    publications: [
+      {
+        title:
+          "Leading students to programming resolution exercises by verifying their goals during program execution",
+        detail:
+          "Simposio Brasileiro de Informatica na Educacao, 2019. Autores: Adilson Vahldick, Gabriel Naoto Ymai Pereira.",
+      },
+    ],
+    languages: [
+      { name: "Portugues", level: "Nativo" },
+      { name: "Ingles", level: "Profissional" },
+    ],
+  },
+};
 
 interface ResumePdfProps {
   lang: "en" | "pt";
 }
 
 export function ResumePdf({ lang }: ResumePdfProps) {
-  const presentLabel = lang === "en" ? "Present" : "Atual";
+  const data = resumeData[lang];
+  const edu = education[0];
+  const sectionLabels =
+    lang === "en"
+      ? {
+          summary: "Summary",
+          skills: "Skills",
+          experience: "Experience",
+          education: "Education",
+          publications: "Publications & Speaking",
+          languages: "Languages",
+        }
+      : {
+          summary: "Resumo",
+          skills: "Habilidades",
+          experience: "Experiencia",
+          education: "Formacao",
+          publications: "Publicacoes & Palestras",
+          languages: "Idiomas",
+        };
 
   return (
     <Document>
@@ -99,63 +270,92 @@ export function ResumePdf({ lang }: ResumePdfProps) {
         {/* Name */}
         <Text style={styles.name}>{personal.fullName}</Text>
 
-        {/* Contact */}
+        {/* Contact row */}
         <Text style={styles.contactRow}>
-          {personal.email} | {personal.social.github} | {personal.social.linkedin}
+          {"Florianópolis, Brazil | "}
+          <Link src={`mailto:${personal.email}`} style={styles.contactLink}>
+            {personal.email}
+          </Link>
+          {" | +55 47 9 9113 2459 | gabrielnaoto.github.io"}
         </Text>
 
-        {/* Experience */}
-        <Text style={styles.sectionHeading}>
-          {lang === "en" ? "Experience" : "Experiencia"}
-        </Text>
-        {experience.map((entry) => {
-          const endDate = entry.endDate?.[lang] ?? presentLabel;
-          return (
-            <View key={`${entry.company}-${entry.startDate}`}>
-              <View style={styles.entryRow}>
-                <View>
-                  <Text style={styles.entryCompany}>{entry.company}</Text>
-                  <Text style={styles.entryRole}>{entry.role[lang]}</Text>
-                </View>
-                <Text style={styles.entryDate}>
-                  {entry.startDate} — {endDate}
-                </Text>
-              </View>
-              <View style={styles.bulletItem}>
-                <Text style={styles.bullet}>&#8226;</Text>
-                <Text style={styles.bulletText}>{entry.description[lang]}</Text>
-              </View>
-            </View>
-          );
-        })}
+        {/* Summary */}
+        <Text style={styles.sectionHeading}>{sectionLabels.summary}</Text>
+        <Text style={styles.paragraph}>{data.summary}</Text>
 
-        {/* Education */}
-        <Text style={styles.sectionHeading}>
-          {lang === "en" ? "Education" : "Formacao"}
-        </Text>
-        {education.map((entry) => (
-          <View key={`${entry.institution}-${entry.endYear}`} style={styles.entryRow}>
-            <View>
-              <Text style={styles.entryCompany}>{entry.institution}</Text>
-              <Text style={styles.entryRole}>{entry.degree[lang]}</Text>
-            </View>
-            <Text style={styles.entryDate}>
-              {entry.startYear} — {entry.endYear}
+        {/* Skills */}
+        <Text style={styles.sectionHeading}>{sectionLabels.skills}</Text>
+        {data.skills.map((skill) => (
+          <View key={skill.category} style={styles.bulletItem}>
+            <Text style={styles.bullet}>&#8226;</Text>
+            <Text style={styles.bulletText}>
+              <Text style={{ fontFamily: "Helvetica-Bold" }}>
+                {skill.category}:
+              </Text>
+              {" " + skill.items}
             </Text>
           </View>
         ))}
 
-        {/* Skills */}
-        <Text style={styles.sectionHeading}>
-          {lang === "en" ? "Technical Skills" : "Habilidades Tecnicas"}
-        </Text>
-        {skills.map((category) => (
-          <View key={category.category.en} style={styles.skillsRow}>
-            <Text style={styles.skillCategory}>
-              {category.category[lang]}:{" "}
+        {/* Experience */}
+        <Text style={styles.sectionHeading}>{sectionLabels.experience}</Text>
+        {data.experience.map((entry) => (
+          <View key={`${entry.company}-${entry.date}`}>
+            <View style={styles.entryHeader}>
+              <View style={styles.entryTitleRow}>
+                <Text style={styles.entryRole}>{entry.role}</Text>
+                <Text style={styles.entrySeparator}> — </Text>
+                <Text style={styles.entryCompany}>{entry.company}</Text>
+              </View>
+            </View>
+            <Text style={styles.entryDate}>{entry.date}</Text>
+            {entry.bullets.map((bullet, i) => (
+              <View key={i} style={styles.bulletItem}>
+                <Text style={styles.bullet}>&#8226;</Text>
+                <Text style={styles.bulletText}>{bullet}</Text>
+              </View>
+            ))}
+          </View>
+        ))}
+
+        {/* Education */}
+        <Text style={styles.sectionHeading}>{sectionLabels.education}</Text>
+        <View style={styles.educationHeader}>
+          <View style={styles.educationTitleRow}>
+            <Text style={styles.educationDegree}>{edu.degree[lang]}</Text>
+            <Text style={styles.entrySeparator}> — </Text>
+            <Text style={styles.educationInstitution}>
+              {data.educationInstitution}
             </Text>
-            <Text style={styles.skillItems}>
-              {category.icons.split(",").join(", ")}
+          </View>
+        </View>
+        <Text style={styles.entryDate}>
+          {edu.startYear} - {edu.endYear}
+        </Text>
+
+        {/* Publications & Speaking */}
+        <Text style={styles.sectionHeading}>
+          {sectionLabels.publications}
+        </Text>
+        {data.publications.map((pub, i) => (
+          <View key={i} style={styles.bulletItem}>
+            <Text style={styles.bullet}>&#8226;</Text>
+            <Text style={styles.bulletText}>
+              <Text style={styles.publicationTitle}>{pub.title}</Text>
+              <Text style={styles.publicationDetail}>
+                {" — " + pub.detail}
+              </Text>
+            </Text>
+          </View>
+        ))}
+
+        {/* Languages */}
+        <Text style={styles.sectionHeading}>{sectionLabels.languages}</Text>
+        {data.languages.map((l) => (
+          <View key={l.name} style={styles.bulletItem}>
+            <Text style={styles.bullet}>&#8226;</Text>
+            <Text style={styles.bulletText}>
+              {l.name} ({l.level})
             </Text>
           </View>
         ))}

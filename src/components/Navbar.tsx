@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
-import { MinimizeButton } from "./MinimizeButton";
 import { MobileMenu } from "./MobileMenu";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 
@@ -16,11 +15,7 @@ const SECTION_IDS = [
   "contact",
 ];
 
-interface NavbarProps {
-  onMinimize: () => void;
-}
-
-export function Navbar({ onMinimize }: NavbarProps) {
+export function Navbar() {
   const { t } = useTranslation();
   const activeId = useScrollSpy(SECTION_IDS);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -55,7 +50,6 @@ export function Navbar({ onMinimize }: NavbarProps) {
           <div className="flex items-center gap-1">
             <LanguageToggle />
             <ThemeToggle />
-            <MinimizeButton onClick={onMinimize} />
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(true)}

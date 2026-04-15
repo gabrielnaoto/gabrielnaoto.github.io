@@ -1,18 +1,30 @@
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { personal } from "../data/personal";
+
+const ParticleBackground = lazy(() =>
+  import("../three/ParticleBackground").then((m) => ({
+    default: m.ParticleBackground,
+  }))
+);
 
 export function Hero() {
   const { i18n } = useTranslation();
   const lang = i18n.language as "en" | "pt";
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 relative">
+    <section className="min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
+      {/* Particle attractor background */}
+      <Suspense fallback={null}>
+        <ParticleBackground />
+      </Suspense>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center"
+        className="text-center relative z-10"
       >
         <h1 className="text-5xl md:text-7xl font-bold font-mono mb-4">
           {personal.name}
@@ -54,7 +66,7 @@ export function Hero() {
 
       {/* Scroll down indicator */}
       <motion.div
-        className="absolute bottom-8"
+        className="absolute bottom-8 z-10"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
