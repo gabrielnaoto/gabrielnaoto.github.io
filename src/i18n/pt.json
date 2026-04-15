@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "experience": "Experiencia",
+    "projects": "Projetos",
+    "skills": "Habilidades",
+    "education": "Formacao",
+    "articles": "Artigos",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Engenheiro de Software",
+    "scrollDown": "Role para baixo"
+  },
+  "about": {
+    "heading": "Sobre Mim",
+    "downloadCv": "Baixar CV"
+  },
+  "experience": {
+    "heading": "Experiencia Profissional",
+    "present": "Atual"
+  },
+  "projects": {
+    "heading": "Projetos",
+    "viewLive": "Demo",
+    "viewCode": "Codigo"
+  },
+  "skills": {
+    "heading": "Conhecimentos e Habilidades"
+  },
+  "education": {
+    "heading": "Formacao Academica"
+  },
+  "articles": {
+    "heading": "Artigos Publicados"
+  },
+  "contact": {
+    "heading": "Contato"
+  }
+}

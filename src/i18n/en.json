@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "education": "Education",
+    "articles": "Articles",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Software Engineer",
+    "scrollDown": "Scroll down"
+  },
+  "about": {
+    "heading": "About Me",
+    "downloadCv": "Download CV"
+  },
+  "experience": {
+    "heading": "Work Experience",
+    "present": "Present"
+  },
+  "projects": {
+    "heading": "Projects",
+    "viewLive": "Live",
+    "viewCode": "Code"
+  },
+  "skills": {
+    "heading": "Skills & Tech Stack"
+  },
+  "education": {
+    "heading": "Education"
+  },
+  "articles": {
+    "heading": "Published Articles"
+  },
+  "contact": {
+    "heading": "Contact"
+  }
+}
