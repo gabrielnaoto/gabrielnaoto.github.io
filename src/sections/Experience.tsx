@@ -11,10 +11,9 @@ export function Experience() {
     <Section id="experience" heading={t("experience.heading")}>
       <div className="relative">
         {/* Timeline line */}
-        <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-700" />
+        <div className="absolute left-1 top-0 bottom-0 w-px bg-gray-700" />
 
         {experience.map((entry, i) => {
-          const isLeft = i % 2 === 0;
           const firstRole = entry.roles[0];
           const lastRole = entry.roles[entry.roles.length - 1];
           const endDate = firstRole.endDate?.[lang] ?? t("experience.present");
@@ -23,24 +22,14 @@ export function Experience() {
           return (
             <motion.div
               key={entry.company}
-              initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`relative mb-12 md:w-1/2 pl-8 md:pl-0 ${
-                isLeft
-                  ? "md:pr-12 md:text-right"
-                  : "md:ml-auto md:pl-12"
-              }`}
+              className="relative mb-12 pl-8"
             >
               {/* Timeline dot */}
-              <div
-                className={`absolute top-2 w-3 h-3 rounded-full bg-accent left-[-6px] ${
-                  isLeft
-                    ? "md:left-auto md:right-[-6px]"
-                    : "md:left-[-6px]"
-                }`}
-              />
+              <div className="absolute top-2 left-[-3px] w-3 h-3 rounded-full bg-accent" />
 
               <h3 className="font-mono font-bold text-lg">
                 {entry.url ? (
@@ -61,7 +50,7 @@ export function Experience() {
               </p>
 
               {/* Roles within company */}
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {entry.roles.map((role, j) => {
                   const roleEnd = role.endDate?.[lang] ?? t("experience.present");
                   const showRoleDates = entry.roles.length > 1;
@@ -76,10 +65,10 @@ export function Experience() {
                           </span>
                         )}
                       </p>
-                      <ul className={`mt-1 space-y-1 text-gray-300 text-sm ${isLeft ? "md:text-right" : ""}`}>
+                      <ul className="mt-1 space-y-1 text-gray-300 text-sm">
                         {role.bullets.map((bullet, k) => (
                           <li key={k} className="flex gap-2">
-                            <span className={`text-accent shrink-0 ${isLeft ? "md:order-last" : ""}`}>›</span>
+                            <span className="text-accent shrink-0">›</span>
                             <span>{bullet[lang]}</span>
                           </li>
                         ))}
@@ -87,7 +76,7 @@ export function Experience() {
                       <img
                         src={`https://skillicons.dev/icons?i=${role.skillIcons}&theme=dark`}
                         alt={`Tech: ${role.skillIcons}`}
-                        className={`h-8 mt-2 ${isLeft ? "md:ml-auto" : ""}`}
+                        className="h-8 mt-2"
                       />
                     </div>
                   );
