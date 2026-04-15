@@ -19,7 +19,7 @@ export function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="rounded-xl border border-gray-800 p-6 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all"
+            className="rounded-xl border border-gray-800 p-6 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all flex flex-col justify-between"
           >
             {project.image && (
               <img
@@ -32,32 +32,34 @@ export function Projects() {
             <p className="text-gray-300 text-sm mb-4">
               {project.description[lang]}
             </p>
-            <img
-              src={`https://skillicons.dev/icons?i=${project.skillIcons}&theme=dark`}
-              alt={`Tech: ${project.skillIcons}`}
-              className="h-8 mb-4"
-            />
-            <div className="flex gap-3">
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-mono text-accent hover:underline"
-                >
-                  {t("projects.viewLive")}
-                </a>
-              )}
-              {project.codeUrl && (
-                <a
-                  href={project.codeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-mono text-accent hover:underline"
-                >
-                  {t("projects.viewCode")}
-                </a>
-              )}
+            <div className="mt-auto pt-4">
+              <img
+                src={`https://skillicons.dev/icons?i=${project.skillIcons}&theme=dark`}
+                alt={`Tech: ${project.skillIcons}`}
+                className="h-8 mb-4"
+              />
+              <div className="flex gap-3">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-mono text-accent hover:underline"
+                  >
+                    {t("projects.viewLive")}
+                  </a>
+                )}
+                {project.codeUrl && (
+                  <a
+                    href={project.codeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-mono text-accent hover:underline"
+                  >
+                    {t("projects.viewCode")}
+                  </a>
+                )}
+              </div>
             </div>
           </motion.div>
         ))}
