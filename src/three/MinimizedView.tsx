@@ -1,5 +1,6 @@
+import { useRef, useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Html, OrbitControls } from "@react-three/drei";
+import { Html } from "@react-three/drei";
 import { RetroComputer } from "./RetroComputer";
 import { MaximizeButton } from "./MaximizeButton";
 import { Hero } from "../sections/Hero";
@@ -16,34 +17,50 @@ interface MinimizedViewProps {
 }
 
 export function MinimizedView({ onMaximize }: MinimizedViewProps) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollDown = useCallback(() => {
+    scrollContainerRef.current?.scrollBy({ top: 200, behavior: "smooth" });
+  }, []);
+
+  const scrollUp = useCallback(() => {
+    scrollContainerRef.current?.scrollBy({ top: -200, behavior: "smooth" });
+  }, []);
+
   return (
     <div className="w-screen h-screen bg-[#1a1a2e]">
       <MaximizeButton onClick={onMaximize} />
       <Canvas
-        camera={{ position: [0, 0.5, 4.5], fov: 45 }}
-        shadows
+        camera={{ position: [0, 1.2, 5.5], fov: 40 }}
       >
-        <ambientLight intensity={0.4} />
-        <pointLight position={[2, 3, 2]} intensity={0.8} />
-        <pointLight position={[-2, 2, 1]} intensity={0.3} color="#0891b2" />
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[3, 4, 5]} intensity={0.7} />
+        <pointLight position={[-2, 3, 2]} intensity={0.3} color="#0891b2" />
 
-        <RetroComputer />
+        {/* Subtle fill light from below */}
+        <pointLight position={[0, -1, 3]} intensity={0.15} color="#ffffff" />
 
-        {/* Portfolio content on the CRT screen */}
+        <RetroComputer onScrollDown={scrollDown} onScrollUp={scrollUp} />
+
+        {/* Portfolio content embedded on the CRT screen */}
         <Html
-          position={[0, 0.25, 0.28]}
+          position={[0, 1.6, 0.78]}
           transform
-          distanceFactor={1.5}
+          distanceFactor={1.55}
           style={{
             width: "800px",
-            height: "580px",
+            height: "575px",
             overflow: "auto",
             background: "#0a0a0a",
-            borderRadius: "2px",
+            borderRadius: "4px",
           }}
           className="pointer-events-auto"
         >
-          <div className="min-h-full bg-bg-dark text-gray-100" style={{ width: "800px" }}>
+          <div
+            ref={scrollContainerRef}
+            className="min-h-full bg-bg-dark text-gray-100"
+            style={{ width: "800px", height: "575px", overflow: "auto" }}
+          >
             <Hero />
             <About />
             <Experience />
@@ -54,14 +71,6 @@ export function MinimizedView({ onMaximize }: MinimizedViewProps) {
             <Contact />
           </div>
         </Html>
-
-        <OrbitControls
-          enablePan={false}
-          minDistance={3}
-          maxDistance={8}
-          minPolarAngle={Math.PI / 4}
-          maxPolarAngle={Math.PI / 2}
-        />
       </Canvas>
     </div>
   );
