@@ -27,7 +27,7 @@ export function Hero() {
         className="text-center relative z-10"
       >
         <h1 className="text-5xl md:text-7xl font-bold font-mono mb-4">
-          {personal.name}
+          gabriel
         </h1>
         <p className="text-xl md:text-2xl text-accent font-mono">
           {personal.title[lang]}
