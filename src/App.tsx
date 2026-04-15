@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
@@ -9,19 +9,24 @@ import { Education } from "./sections/Education";
 import { Articles } from "./sections/Articles";
 import { Contact } from "./sections/Contact";
 
+const MinimizedView = lazy(() =>
+  import("./three/MinimizedView").then((m) => ({ default: m.MinimizedView }))
+);
+
 function App() {
   const [minimized, setMinimized] = useState(false);
 
   if (minimized) {
     return (
-      <div className="min-h-screen bg-bg-dark flex items-center justify-center">
-        <button
-          onClick={() => setMinimized(false)}
-          className="text-white font-mono"
-        >
-          3D scene placeholder — click to maximize
-        </button>
-      </div>
+      <Suspense
+        fallback={
+          <div className="w-screen h-screen bg-[#1a1a2e] flex items-center justify-center">
+            <p className="text-white font-mono animate-pulse">Loading 3D scene...</p>
+          </div>
+        }
+      >
+        <MinimizedView onMaximize={() => setMinimized(false)} />
+      </Suspense>
     );
   }
 
